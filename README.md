@@ -1,16 +1,43 @@
-# React + Vite
+Install dependencies:
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+```bash
+npm install
+```
 
-Currently, two official plugins are available:
+Start the development server:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```bash
+npm run dev
+```
 
-## React Compiler
+Then open the local URL shown in the terminal, usually `http://localhost:5173/`.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Quality checks
 
-## Expanding the Oxlint configuration
+Run the linter before committing changes:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+```bash
+npm run lint
+```
+
+## Production build
+
+Create an optimized production build:
+
+```bash
+npm run build
+```
+
+Preview the production build locally:
+
+```bash
+npm run preview
+```
+
+## Project structure
+
+- `src/components/` — reusable UI components.
+- `src/data/` — mock data and, later, data-related modules.
+- `src/App.jsx` — the root application component.
+- `src/App.module.css` — styles for the root application layout.
+- `src/components/CurrentWeather/` — the current weather UI component and its styles.
