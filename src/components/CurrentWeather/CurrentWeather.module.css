@@ -15,4 +15,47 @@
 .current-weather__summary {
   margin-top: 8px;
   font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.current-weather__temperature {
+  margin: 24px 0 0;
+  font-size: clamp(3.5rem, 10vw, 6rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.current-weather__feels-like {
+  margin-top: 8px;
+  color: #cbd5e1;
+}
+
+.current-weather__details {
+  display: grid;
+  gap: 12px;
+  margin: 24px 0 0;
+  padding: 0;
+}
+
+.current-weather__detail {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.current-weather__detail-label {
+  color: #cbd5e1;
+}
+
+.current-weather__detail-value {
+  margin: 0;
+  font-weight: 700;
+}
+
+.current-weather__icon {
+  display: block;
+  font-size: clamp(3rem, 10vw, 5rem);
+  line-height: 1;
 }

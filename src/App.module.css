@@ -188,3 +188,8 @@
   padding: clamp(16px, 4vw, 48px);
   background: linear-gradient(135deg, #07162d, #102b55);
 }
+
+.app__content {
+  width: min(100%, 1200px);
+  margin: 0 auto;
+}
