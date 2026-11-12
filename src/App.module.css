@@ -189,7 +189,21 @@
   background: linear-gradient(135deg, #07162d, #102b55);
 }
 
-.app__content {
-  width: min(100%, 1200px);
+.app__layout {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 24px;
+  width: min(100%, 1440px);
   margin: 0 auto;
+  align-items: start;
+}
+
+.app__content {
+  min-width: 0;
+}
+
+@media (max-width: 800px) {
+  .app__layout {
+    grid-template-columns: 1fr;
+  }
 }
