@@ -41,3 +41,9 @@ npm run preview
 - `src/App.jsx` — the root application component.
 - `src/App.module.css` — styles for the root application layout.
 - `src/components/CurrentWeather/` — the current weather UI component and its styles.
+
+## AI-assisted development
+
+Weatherly is developed as a learning project with Codex acting as a React mentor and code-review assistant.
+The developer writes and understands the code step by step. AI is used to explain concepts, review decisions, and suggest small, scoped changes.
+Project-specific AI instructions are documented in [AGENTS.md](./AGENTS.md).
