@@ -1,13 +1,16 @@
-import { useState } from "react"
 import FavoriteCityList from "../../components/FavoriteCityList/FavoriteCityList.jsx"
 import { mockFavorites } from "../../data/mockFavorites.js"
+import { useLocalStorage } from "../../hooks/useLocalStorage.js"
 
 function Favorites() {
-  const [favorities, setFavorities] = useState(mockFavorites)
+  const [favorites, setFavorites] = useLocalStorage(
+    "weatherly-favorites",
+    mockFavorites
+  )
 
-  function handleRemoveFavorities(cityId) {
-    setFavorities((currentFavorities) =>
-      currentFavorities.filter((city) => city.id !== cityId)
+  function handleRemoveFavorites(cityId) {
+    setFavorites((currentFavorites) =>
+      currentFavorites.filter((city) => city.id !== cityId)
     )
   }
 
@@ -15,13 +18,10 @@ function Favorites() {
     <section>
       <h1>Favorites</h1>
 
-      {favorities.length === 0 ? (
+      {favorites.length === 0 ? (
         <p>You have no saved cities yet.</p>
       ) : (
-        <FavoriteCityList
-          cities={favorities}
-          onRemove={handleRemoveFavorities}
-        />
+        <FavoriteCityList cities={favorites} onRemove={handleRemoveFavorites} />
       )}
     </section>
   )
