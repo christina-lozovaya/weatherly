@@ -4,8 +4,14 @@ import Favorites from "./pages/Favorites/Favorites.jsx"
 import Settings from "./pages/Settings/Settings.jsx"
 import { Route, Routes } from "react-router"
 import Sidebar from "./components/Sidebar/Sidebar.jsx"
+import { useLocalStorage } from "./hooks/useLocalStorage.js"
 
 function App() {
+  const [temperatureUnit, setTemperatureUnit] = useLocalStorage(
+    "weatherly-temperature-unit",
+    "celsius"
+  )
+
   return (
     <main className={styles.app}>
       <div className={styles["app__layout"]}>
@@ -13,9 +19,20 @@ function App() {
 
         <div className={styles["app__content"]}>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route
+              path="/"
+              element={<Home temperatureUnit={temperatureUnit} />}
+            />
             <Route path="/favorites" element={<Favorites />} />
-            <Route path="/settings" element={<Settings />} />
+            <Route
+              path="/settings"
+              element={
+                <Settings
+                  temperatureUnit={temperatureUnit}
+                  onTemperatureUnitChange={setTemperatureUnit}
+                />
+              }
+            />
           </Routes>
         </div>
       </div>
