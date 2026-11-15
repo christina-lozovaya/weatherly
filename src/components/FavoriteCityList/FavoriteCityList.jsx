@@ -28,7 +28,7 @@ function FavoriteCityList({ cities, onRemove }) {
           <button
             type="button"
             className={styles["favorite-city-list__remove-button"]}
-            aria-label={`Remove ${city.city} from favorities`}
+            aria-label={`Remove ${city.city} from favorites`}
             onClick={() => onRemove(city.id)}
           >
             Remove
