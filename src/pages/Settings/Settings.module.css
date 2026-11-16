@@ -1,0 +1,36 @@
+.settings {
+  color: var(--text-primary);
+}
+
+.settings__title {
+  margin: 0 0 24px;
+  color: inherit;
+}
+
+.settings__fieldset {
+  display: grid;
+  gap: 16px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 24px;
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  background: var(--surface);
+}
+
+.settings__legend {
+  padding: 0 8px;
+  font-weight: 700;
+}
+
+.settings__option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.settings__option input {
+  accent-color: #2563eb;
+}

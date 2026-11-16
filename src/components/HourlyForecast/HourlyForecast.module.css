@@ -1,10 +1,10 @@
 .hourly-forecast {
   margin-top: 24px;
   padding: 24px;
-  border: 1px solid rgba(148, 163, 184, 0.35);
+  border: 1px solid var(--border-color);
   border-radius: 24px;
-  color: #f8fafc;
-  background: rgba(15, 23, 42, 0.88);
+  color: var(--text-primary);
+  background: var(--surface);
 }
 
 .hourly-forecast__title {
@@ -29,7 +29,7 @@
   gap: 8px;
   min-width: 120px;
   padding: 0 16px;
-  border-left: 1px solid rgba(148, 163, 184, 0.2);
+  border-left: 1px solid var(--border-color);
 }
 
 .hourly-forecast__item:first-child {
@@ -39,7 +39,7 @@
 .hourly-forecast__time,
 .hourly-forecast__precipitation {
   margin: 0;
-  color: #cbd5e1;
+  color: var(--text-secondary);
 }
 
 .hourly-forecast__temperature {
