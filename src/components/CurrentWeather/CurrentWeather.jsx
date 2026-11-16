@@ -3,12 +3,15 @@ import {
   getTemperatureUnitSymbol,
 } from "../../utils/temperature"
 import { getWeatherIcon } from "../../utils/weather"
+import { convertWindSpeed, getWindSpeedUnitSymbol } from "../../utils/windSpeed"
 import styles from "./CurrentWeather.module.css"
 
-function CurrentWeather({ weather, temperatureUnit }) {
+function CurrentWeather({ weather, temperatureUnit, windSpeedUnit }) {
   const temperature = convertTemperature(weather.temperature, temperatureUnit)
   const feelsLike = convertTemperature(weather.feelsLike, temperatureUnit)
   const temperatureUnitSymbol = getTemperatureUnitSymbol(temperatureUnit)
+  const windSpeed = convertWindSpeed(weather.windSpeed, windSpeedUnit)
+  const windSpeedSymbol = getWindSpeedUnitSymbol(windSpeedUnit)
 
   return (
     <section className={styles["current-weather"]}>
@@ -40,7 +43,7 @@ function CurrentWeather({ weather, temperatureUnit }) {
         <div className={styles["current-weather__detail"]}>
           <dt className={styles["current-weather__detail-label"]}>Wind</dt>
           <dd className={styles["current-weather__detail-value"]}>
-            {weather.windSpeed} km/h · {weather.windDirection}
+            {windSpeed} {windSpeedSymbol} · {weather.windDirection}
           </dd>
         </div>
 

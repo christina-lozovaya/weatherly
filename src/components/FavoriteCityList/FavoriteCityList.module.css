@@ -12,10 +12,10 @@
   align-items: center;
   gap: 16px;
   padding: 16px;
-  border: 1px solid rgba(148, 163, 184, 0.35);
+  border: 1px solid var(--border-color);
   border-radius: 16px;
-  color: #f8fafc;
-  background: rgba(15, 23, 42, 0.88);
+  color: var(--text-primary);
+  background: var(--surface);
 }
 
 .favorite-city-list__icon {
@@ -40,21 +40,21 @@
 }
 
 .favorite-city-list__country {
-  color: #cbd5e1;
+  color: var(--text-secondary);
 }
 
 .favorite-city-list__remove-button {
   padding: 8px 12px;
-  border: 1px solid rgba(248, 113, 113, 0.5);
+  border: 1px solid var(--danger-border);
   border-radius: 8px;
-  color: #fecaca;
+  color: var(--danger-text);
   background: transparent;
   font: inherit;
   cursor: pointer;
 }
 
 .favorite-city-list__remove-button:hover {
-  background: rgba(248, 113, 113, 0.15);
+  background: var(--danger-hover);
 }
 
 .favorite-city-list__remove-button:focus-visible {

@@ -12,8 +12,17 @@ function App() {
     "celsius"
   )
 
+  const [windSpeedUnit, setWindSpeedUnit] = useLocalStorage(
+    "weatherly-wind-speed-unit",
+    "kilometers-per-hour"
+  )
+
+  const [theme, setTheme] = useLocalStorage("weatherly-theme", "dark")
+
   return (
-    <main className={styles.app}>
+    <main
+      className={`${styles.app} ${theme === "light" ? styles["app--light"] : ""}`}
+    >
       <div className={styles["app__layout"]}>
         <Sidebar />
 
@@ -21,7 +30,12 @@ function App() {
           <Routes>
             <Route
               path="/"
-              element={<Home temperatureUnit={temperatureUnit} />}
+              element={
+                <Home
+                  temperatureUnit={temperatureUnit}
+                  windSpeedUnit={windSpeedUnit}
+                />
+              }
             />
             <Route path="/favorites" element={<Favorites />} />
             <Route
@@ -30,6 +44,10 @@ function App() {
                 <Settings
                   temperatureUnit={temperatureUnit}
                   onTemperatureUnitChange={setTemperatureUnit}
+                  windSpeedUnit={windSpeedUnit}
+                  onWindSpeedUnitChange={setWindSpeedUnit}
+                  theme={theme}
+                  onThemeChange={setTheme}
                 />
               }
             />

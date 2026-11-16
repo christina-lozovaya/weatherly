@@ -6,12 +6,15 @@ import {
   mockHourlyForecast,
   mockWeather,
 } from "../../data/mockWeather"
-import styles from "./Home.module.css"
 
-function Home({ temperatureUnit }) {
+function Home({ temperatureUnit, windSpeedUnit }) {
   return (
     <>
-      <CurrentWeather weather={mockWeather} temperatureUnit={temperatureUnit} />
+      <CurrentWeather
+        weather={mockWeather}
+        temperatureUnit={temperatureUnit}
+        windSpeedUnit={windSpeedUnit}
+      />
       <HourlyForecast
         forecast={mockHourlyForecast}
         temperatureUnit={temperatureUnit}

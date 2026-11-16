@@ -1,7 +1,13 @@
+import {
+  convertTemperature,
+  getTemperatureUnitSymbol,
+} from "../../utils/temperature"
 import { getWeatherIcon } from "../../utils/weather"
 import styles from "./DailyForecast.module.css"
 
-function DailyForecast({ forecast }) {
+function DailyForecast({ forecast, temperatureUnit }) {
+  const temperatureUnitSymbol = getTemperatureUnitSymbol(temperatureUnit)
+
   return (
     <section className={styles["daily-forecast"]}>
       <h2 className={styles["daily-forecast__title"]}>7-Day Forecast</h2>
@@ -23,7 +29,9 @@ function DailyForecast({ forecast }) {
               {getWeatherIcon(dailyWeather.condition)}
             </span>
             <p className={styles["daily-forecast__temperature"]}>
-              {dailyWeather.high}° / {dailyWeather.low}°
+              {convertTemperature(dailyWeather.high, temperatureUnit)} /{" "}
+              {convertTemperature(dailyWeather.low, temperatureUnit)}
+              {temperatureUnitSymbol}
             </p>
             <p className={styles["daily-forecast__precipitation"]}>
               {dailyWeather.precipitation}%
