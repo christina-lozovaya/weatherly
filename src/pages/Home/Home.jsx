@@ -8,16 +8,12 @@ import {
   mockWeather,
 } from "../../data/mockWeather"
 import CitySearch from "../../components/CitySearch/CitySearch"
-import { mockCitySearchResults } from "../../data/mockCitySearchResults"
-import { filterCitySearchResults } from "../../utils/citySearch"
+import { useCitySearch } from "../../hooks/useCitySearch"
 
 function Home({ temperatureUnit, windSpeedUnit }) {
   const [searchQuery, setSearchQuery] = useState("")
 
-  const searchResults = filterCitySearchResults(
-    mockCitySearchResults,
-    searchQuery
-  )
+  const { searchResults, isLoading, error } = useCitySearch(searchQuery)
 
   const [isSearchResultsOpen, setIsSearchResultsOpen] = useState(false)
 
@@ -39,6 +35,8 @@ function Home({ temperatureUnit, windSpeedUnit }) {
         searchResults={searchResults}
         isSearchResultsOpen={isSearchResultsOpen}
         onCitySelect={handleCitySelect}
+        isLoading={isLoading}
+        error={error}
       />
       <CurrentWeather
         weather={mockWeather}

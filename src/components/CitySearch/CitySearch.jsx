@@ -6,6 +6,8 @@ function CitySearch({
   searchResults,
   isSearchResultsOpen,
   onCitySelect,
+  isLoading,
+  error,
 }) {
   return (
     <section className={styles["city-search"]}>
@@ -24,8 +26,12 @@ function CitySearch({
       />
 
       {isSearchResultsOpen &&
-        searchQuery.trim() &&
-        (searchResults.length > 0 ? (
+        searchQuery.trim().length >= 2 &&
+        (isLoading ? (
+          <p role="status">Searching cities...</p>
+        ) : error ? (
+          <p role="status">{error}</p>
+        ) : searchResults.length > 0 ? (
           <ul>
             {searchResults.map((city) => (
               <li key={city.id}>
@@ -36,7 +42,7 @@ function CitySearch({
             ))}
           </ul>
         ) : (
-          <p>No cities found.</p>
+          <p role="status">No cities found.</p>
         ))}
     </section>
   )
